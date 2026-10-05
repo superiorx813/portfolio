@@ -24,10 +24,14 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
   <header class="nav-wrap">
     <div class="container">
       <nav class="navbar">
+
         <a href="#home" class="brand">
           <span class="brand-mark">KS</span>
           <span>Kasani mohan sri sai</span>
@@ -42,24 +46,361 @@
           <a href="#contact" class="nav-cta">Let's Talk</a>
         </div>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <button
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open menu"
+        >
           ☰
         </button>
+
       </nav>
     </div>
   </header>
 
+
   <main>
 
-    <!-- Hero Section -->
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
     <section class="hero section" id="home">
-      <div class="container hero-grid">
+
+      <div class="container hero-container">
+
+        <!-- =================================================
+             HERO IDENTITY
+
+             65% MOHAN
+             5% GAP
+             30% CARD
+             ================================================= -->
+
+        <div class="hero-identity reveal">
+
+          <!-- ================= MOHAN ================= -->
+
+          <div
+            class="mohan-name-wrap"
+            id="mohanName"
+            aria-label="Mohan"
+          >
+
+            <div class="mohan-letter" data-letter="M">
+              <span class="mohan-thread"></span>
+              <span class="mohan-char">M</span>
+            </div>
+
+            <div class="mohan-letter" data-letter="O">
+              <span class="mohan-thread"></span>
+              <span class="mohan-char">O</span>
+            </div>
+
+            <div class="mohan-letter" data-letter="H">
+              <span class="mohan-thread"></span>
+              <span class="mohan-char">H</span>
+            </div>
+
+            <div class="mohan-letter" data-letter="A">
+              <span class="mohan-thread"></span>
+              <span class="mohan-char">A</span>
+            </div>
+
+            <div class="mohan-letter" data-letter="N">
+              <span class="mohan-thread"></span>
+              <span class="mohan-char">N</span>
+            </div>
+
+          </div>
+
+
+          <!-- ================= ID CARD ================= -->
+
+          <div class="id-card-scene">
+
+            <div class="id-card-strap">
+              <span class="strap-ring"></span>
+              <span class="strap-line"></span>
+            </div>
+
+
+            <div class="id-card" id="profileCard">
+
+              <div class="id-card-inner">
+
+                <!-- FRONT -->
+
+                <div class="id-card-face id-card-front">
+
+                  <div class="id-card-header">
+
+                    <span class="id-card-label">
+                      AURORA / ID
+                    </span>
+
+                    <span class="id-card-status">
+                      <i></i>
+                      ACTIVE
+                    </span>
+
+                  </div>
+
+
+                  <div class="id-photo-area">
+
+                    <img
+                      src="C:\Users\Naren\Downloads\my pic.png"
+                      alt="Kasani Mohan Sri Sai"
+                      class="profile-photo"
+                    />
+
+
+                  </div>
+
+
+                  <div class="id-card-info">
+
+                    <span class="id-small-label">
+                      NAME
+                    </span>
+
+                    <h3>
+                      Kasani Mohan
+                      <br />
+                      Sri Sai
+                    </h3>
+
+                    <span class="id-role">
+                      FULL-STACK DEVELOPER
+                    </span>
+
+                  </div>
+
+
+                  <div class="id-card-tech">
+                    <span>REACT</span>
+                    <span>NODE</span>
+                    <span>MYSQL</span>
+                  </div>
+
+
+                  <div class="id-card-footer">
+                    <span>KS / 001</span>
+                    <span>DEVELOPER</span>
+                  </div>
+
+                </div>
+
+
+                <!-- BACK -->
+
+                <div class="id-card-face id-card-back">
+
+                  <div class="id-card-header">
+
+                    <span class="id-card-label">
+                      PROFILE / DETAILS
+                    </span>
+
+                    <span class="id-back-mark">
+                      KS
+                    </span>
+
+                  </div>
+
+
+                  <div class="back-content">
+
+                    <div class="back-section">
+
+                      <span class="id-small-label">
+                        SPECIALIZATION
+                      </span>
+
+                      <strong>
+                        Full-Stack Web Development
+                      </strong>
+
+                    </div>
+
+
+                    <div class="back-section">
+
+                      <span class="id-small-label">
+                        CORE STACK
+                      </span>
+
+                      <div class="back-tech-list">
+                        <span>React</span>
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                        <span>Node.js</span>
+                        <span>ColdFusion</span>
+                        <span>MySQL</span>
+                      </div>
+
+                    </div>
+
+
+                    <div class="back-section">
+
+                      <span class="id-small-label">
+                        FOCUS
+                      </span>
+
+                      <p>
+                        Building reliable, scalable and user-focused
+                        digital applications.
+                      </p>
+
+                    </div>
+
+
+                    <div class="back-section">
+
+                      <span class="id-small-label">
+                        BUILDING WITH
+                      </span>
+
+                      <div class="back-line">
+                        <span>UI / UX</span>
+                        <span>APIs</span>
+                        <span>DATABASES</span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="id-card-footer">
+                    <span>MOHAN</span>
+                    <span>KS / 001</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="flip-card-btn"
+              id="flipCardBtn"
+              aria-label="Flip profile card"
+              aria-pressed="false"
+            >
+              <span class="flip-icon">↻</span>
+              Flip Card
+            </button>
+
+          </div>
+
+
+          <!-- ================= BACKGROUND ================= -->
+
+          <div class="visual-orbit"></div>
+
+
+          <!-- ================= FLOATING PILLS ================= -->
+
+          <div class="floating-pill floating-pill-one">
+            <span></span>
+            React / TypeScript
+          </div>
+
+          <div class="floating-pill floating-pill-two">
+            <span></span>
+            MySQL / APIs
+          </div>
+
+
+          <!-- ================= CODE CARD ================= -->
+
+          <div class="code-card">
+
+            <div class="code-top">
+
+              <div class="window-dots">
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+
+              <span>developer.config.js</span>
+
+            </div>
+
+
+            <div class="code-line">
+              <span class="line-number">01</span>
+              <span>
+                <span class="code-blue">const</span> developer = {
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="line-number">02</span>
+              <span>
+                name:
+                <span class="code-cyan">
+                  'Kasani mohan sri sai'
+                </span>,
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="line-number">03</span>
+              <span>
+                role:
+                <span class="code-cyan">
+                  'Full-Stack Developer'
+                </span>,
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="line-number">04</span>
+              <span>
+                focus: [
+                <span class="code-cyan">'UI'</span>,
+                <span class="code-cyan">'APIs'</span>
+                ],
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="line-number">05</span>
+              <span>
+                coffee:
+                <span class="code-lime">true</span>
+              </span>
+            </div>
+
+            <div class="code-line">
+              <span class="line-number">06</span>
+              <span>}</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             HERO CONTENT
+             ================================================= -->
 
         <div class="hero-content reveal">
+
           <div class="availability">
             <i></i>
             Available for selected opportunities
           </div>
+
 
           <h1>
             I build digital products that
@@ -68,22 +409,32 @@
             </span>
           </h1>
 
+
           <p class="hero-description">
             Full-stack developer creating reliable, scalable, and user-focused
             web applications with React, JavaScript, ColdFusion, Node.js, and MySQL.
           </p>
 
+
           <div class="hero-actions">
+
             <a href="#projects" class="btn btn-primary">
               View My Work <span>↗</span>
             </a>
 
-            <a href="assets/resume.pdf" class="btn btn-ghost" download>
+            <a
+              href="assets/resume.pdf"
+              class="btn btn-ghost"
+              download
+            >
               Download Resume
             </a>
+
           </div>
 
+
           <div class="hero-meta">
+
             <div>
               <strong>07+</strong>
               Technologies
@@ -98,99 +449,50 @@
               <strong>Full-stack</strong>
               Development
             </div>
-          </div>
-        </div>
 
-        <div class="hero-visual reveal">
-          <div class="visual-orbit"></div>
-
-          <div class="floating-pill">
-            <span></span>
-            React / TypeScript
           </div>
 
-          <div class="floating-pill">
-            <span></span>
-            MySQL / APIs
-          </div>
-
-          <div class="code-card">
-            <div class="code-top">
-              <div class="window-dots">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-
-              <span>developer.config.js</span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">01</span>
-              <span>
-                <span class="code-blue">const</span> developer = {
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">02</span>
-              <span>
-                name: <span class="code-cyan">'Kasani mohan sri sai'</span>,
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">03</span>
-              <span>
-                role: <span class="code-cyan">'Full-Stack Developer'</span>,
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">04</span>
-              <span>
-                focus: [<span class="code-cyan">'UI'</span>,
-                <span class="code-cyan">'APIs'</span>],
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">05</span>
-              <span>
-                coffee: <span class="code-lime">true</span>
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">06</span>
-              <span>}</span>
-            </div>
-          </div>
         </div>
 
       </div>
+
     </section>
 
-    <!-- About Section -->
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
     <section class="section" id="about">
+
       <div class="container">
 
         <div class="section-heading reveal">
+
           <div>
             <span class="mono">01 / About Me</span>
-            <h2>Building with purpose, not just pixels.</h2>
+
+            <h2>
+              Building with purpose, not just pixels.
+            </h2>
           </div>
 
           <p>
             I combine technical knowledge, business understanding, and thoughtful
             design to create applications that are useful and easy to use.
           </p>
+
         </div>
 
+
         <div class="about-grid">
-          <div class="about-number reveal">01</div>
+
+          <div class="about-number reveal">
+            01
+          </div>
 
           <div class="about-content reveal">
+
             <h3>
               I turn complicated requirements into focused digital experiences.
             </h3>
@@ -202,7 +504,9 @@
               applications from concept to completion.
             </p>
 
+
             <div class="stats">
+
               <div class="stat">
                 <strong>07+</strong>
                 <span>Core technologies</span>
@@ -217,32 +521,48 @@
                 <strong>360°</strong>
                 <span>Development mindset</span>
               </div>
+
             </div>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- Skills Section -->
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+
     <section class="section" id="skills">
+
       <div class="container">
 
         <div class="section-heading reveal">
+
           <div>
             <span class="mono">02 / Expertise</span>
-            <h2>The tools behind the work.</h2>
+
+            <h2>
+              The tools behind the work.
+            </h2>
           </div>
 
           <p>
             A practical technology stack for developing modern, scalable,
             database-driven applications.
           </p>
+
         </div>
+
 
         <div class="skills-grid">
 
           <article class="skill-card reveal">
+
             <div class="skill-icon">UI</div>
 
             <h3>Frontend Development</h3>
@@ -257,9 +577,12 @@
               <span>JavaScript</span>
               <span>React</span>
             </div>
+
           </article>
 
+
           <article class="skill-card reveal">
+
             <div class="skill-icon">JS</div>
 
             <h3>Modern JavaScript</h3>
@@ -274,9 +597,12 @@
               <span>ES6+</span>
               <span>Bootstrap</span>
             </div>
+
           </article>
 
+
           <article class="skill-card reveal">
+
             <div class="skill-icon">API</div>
 
             <h3>Backend Systems</h3>
@@ -290,9 +616,12 @@
               <span>ColdFusion</span>
               <span>REST APIs</span>
             </div>
+
           </article>
 
+
           <article class="skill-card reveal">
+
             <div class="skill-icon">DB</div>
 
             <h3>Database Development</h3>
@@ -306,52 +635,86 @@
               <span>CRUD</span>
               <span>Queries</span>
             </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- Projects Section -->
+
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
+
     <section class="section" id="projects">
+
       <div class="container">
 
         <div class="section-heading reveal">
+
           <div>
             <span class="mono">03 / Selected Work</span>
-            <h2>Projects built to solve real problems.</h2>
+
+            <h2>
+              Projects built to solve real problems.
+            </h2>
           </div>
 
           <p>
             Applications created to improve workflows, organize information,
             and deliver better digital experiences.
           </p>
+
         </div>
 
+
         <div class="project-filters reveal">
-          <button class="filter-btn active" data-filter="all">
+
+          <button
+            class="filter-btn active"
+            data-filter="all"
+          >
             All Projects
           </button>
 
-          <button class="filter-btn" data-filter="frontend">
+          <button
+            class="filter-btn"
+            data-filter="frontend"
+          >
             Frontend
           </button>
 
-          <button class="filter-btn" data-filter="business">
+          <button
+            class="filter-btn"
+            data-filter="business"
+          >
             Business Systems
           </button>
 
-          <button class="filter-btn" data-filter="ecommerce">
+          <button
+            class="filter-btn"
+            data-filter="ecommerce"
+          >
             E-Commerce
           </button>
+
         </div>
+
 
         <div class="projects-grid">
 
-          <!-- CRM Project -->
-          <article class="project-card featured reveal" data-category="business">
+          <article
+            class="project-card featured reveal"
+            data-category="business"
+          >
+
             <div class="project-visual">
+
               <div class="dashboard">
+
                 <div class="dashboard-top">
                   <i></i>
                   <i></i>
@@ -359,9 +722,11 @@
                 </div>
 
                 <div class="dashboard-layout">
+
                   <div class="dashboard-side"></div>
 
                   <div class="dashboard-main">
+
                     <div class="dashboard-heading"></div>
 
                     <div class="chart">
@@ -372,15 +737,25 @@
                       <i></i>
                       <i></i>
                     </div>
+
                   </div>
+
                 </div>
+
               </div>
+
             </div>
 
-            <div class="project-content">
-              <span class="mono">01 / Business Application</span>
 
-              <h3>Customer Relationship Management</h3>
+            <div class="project-content">
+
+              <span class="mono">
+                01 / Business Application
+              </span>
+
+              <h3>
+                Customer Relationship Management
+              </h3>
 
               <p>
                 A database-driven CRM application designed to organize customer
@@ -395,16 +770,27 @@
                 <span class="tag">MySQL</span>
               </div>
 
-              <button class="project-link open-modal" data-project="crm">
+              <button
+                class="project-link open-modal"
+                data-project="crm"
+              >
                 View case study <span>↗</span>
               </button>
+
             </div>
+
           </article>
 
-          <!-- Project Management -->
-          <article class="project-card reveal" data-category="frontend business">
+
+          <article
+            class="project-card reveal"
+            data-category="frontend business"
+          >
+
             <div class="project-visual">
+
               <div class="dashboard">
+
                 <div class="dashboard-top">
                   <i></i>
                   <i></i>
@@ -412,9 +798,11 @@
                 </div>
 
                 <div class="dashboard-layout">
+
                   <div class="dashboard-side"></div>
 
                   <div class="dashboard-main">
+
                     <div class="dashboard-heading blue"></div>
 
                     <div class="chart">
@@ -425,15 +813,25 @@
                       <i></i>
                       <i></i>
                     </div>
+
                   </div>
+
                 </div>
+
               </div>
+
             </div>
 
-            <div class="project-content">
-              <span class="mono">02 / Management Platform</span>
 
-              <h3>Project Management System</h3>
+            <div class="project-content">
+
+              <span class="mono">
+                02 / Management Platform
+              </span>
+
+              <h3>
+                Project Management System
+              </h3>
 
               <p>
                 A React-based system for organizing projects, tracking tasks,
@@ -446,16 +844,27 @@
                 <span class="tag">Dashboard</span>
               </div>
 
-              <button class="project-link open-modal" data-project="project-management">
+              <button
+                class="project-link open-modal"
+                data-project="project-management"
+              >
                 View case study <span>↗</span>
               </button>
+
             </div>
+
           </article>
 
-          <!-- Ecommerce -->
-          <article class="project-card reveal" data-category="frontend ecommerce">
+
+          <article
+            class="project-card reveal"
+            data-category="frontend ecommerce"
+          >
+
             <div class="project-visual">
+
               <div class="dashboard">
+
                 <div class="dashboard-top">
                   <i></i>
                   <i></i>
@@ -463,9 +872,11 @@
                 </div>
 
                 <div class="dashboard-layout">
+
                   <div class="dashboard-side"></div>
 
                   <div class="dashboard-main">
+
                     <div class="dashboard-heading lime"></div>
 
                     <div class="chart">
@@ -476,15 +887,25 @@
                       <i></i>
                       <i></i>
                     </div>
+
                   </div>
+
                 </div>
+
               </div>
+
             </div>
 
-            <div class="project-content">
-              <span class="mono">03 / Commerce Experience</span>
 
-              <h3>E-Commerce Application</h3>
+            <div class="project-content">
+
+              <span class="mono">
+                03 / Commerce Experience
+              </span>
+
+              <h3>
+                E-Commerce Application
+              </h3>
 
               <p>
                 A complete shopping experience with product browsing, cart
@@ -498,297 +919,523 @@
                 <span class="tag">MySQL</span>
               </div>
 
-              <button class="project-link open-modal" data-project="ecommerce">
+              <button
+                class="project-link open-modal"
+                data-project="ecommerce"
+              >
                 View case study <span>↗</span>
               </button>
+
             </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- Experience Section -->
+
+    <!-- =====================================================
+         EXPERIENCE
+         ===================================================== -->
+
     <section class="section" id="experience">
+
       <div class="container">
 
         <div class="section-heading reveal">
+
           <div>
             <span class="mono">04 / Experience</span>
-            <h2>From idea to working product.</h2>
+
+            <h2>
+              From idea to working product.
+            </h2>
           </div>
 
           <p>
             My development approach covers planning, interface construction,
             backend logic, data, testing, and refinement.
           </p>
+
         </div>
+
 
         <div class="experience-list">
 
           <article class="experience-item reveal">
-            <div class="experience-year">PHASE 01</div>
+
+            <div class="experience-year">
+              PHASE 01
+            </div>
 
             <div class="experience-body">
-              <h3>Product Understanding</h3>
+
+              <h3>
+                Product Understanding
+              </h3>
 
               <p>
                 Translate business requirements into clear application structures,
                 user flows, and technical priorities.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <div class="experience-year">PHASE 02</div>
+
+            <div class="experience-year">
+              PHASE 02
+            </div>
 
             <div class="experience-body">
-              <h3>Interface Development</h3>
+
+              <h3>
+                Interface Development
+              </h3>
 
               <p>
                 Build responsive and accessible interfaces with reusable components,
                 thoughtful layouts, and polished interactions.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <div class="experience-year">PHASE 03</div>
+
+            <div class="experience-year">
+              PHASE 03
+            </div>
 
             <div class="experience-body">
-              <h3>Backend and Database</h3>
+
+              <h3>
+                Backend and Database
+              </h3>
 
               <p>
                 Connect applications to server-side logic, APIs, MySQL databases,
                 workflows, and business operations.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="experience-item reveal">
-            <div class="experience-year">PHASE 04</div>
+
+            <div class="experience-year">
+              PHASE 04
+            </div>
 
             <div class="experience-body">
-              <h3>Testing and Refinement</h3>
+
+              <h3>
+                Testing and Refinement
+              </h3>
 
               <p>
                 Review usability, responsiveness, performance, and reliability
                 to create a better final product.
               </p>
+
             </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- Services Section -->
+
+    <!-- =====================================================
+         SERVICES
+         ===================================================== -->
+
     <section class="section" id="services">
+
       <div class="container">
 
         <div class="section-heading reveal">
+
           <div>
             <span class="mono">05 / Services</span>
-            <h2>Ways I can help build your next product.</h2>
+
+            <h2>
+              Ways I can help build your next product.
+            </h2>
           </div>
 
           <p>
             Flexible development support for new products, internal systems,
             and existing applications.
           </p>
+
         </div>
+
 
         <div class="services-grid">
 
           <article class="service reveal">
-            <div class="service-number">01</div>
+
+            <div class="service-number">
+              01
+            </div>
 
             <div>
-              <h3>Frontend Development</h3>
+
+              <h3>
+                Frontend Development
+              </h3>
 
               <p>
                 Responsive, interactive, and accessible websites using React,
                 JavaScript, TypeScript, HTML, CSS, and Bootstrap.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="service reveal">
-            <div class="service-number">02</div>
+
+            <div class="service-number">
+              02
+            </div>
 
             <div>
-              <h3>Full-Stack Applications</h3>
+
+              <h3>
+                Full-Stack Applications
+              </h3>
 
               <p>
                 Complete web applications with frontend interfaces, backend logic,
                 APIs, authentication, and database functionality.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="service reveal">
-            <div class="service-number">03</div>
+
+            <div class="service-number">
+              03
+            </div>
 
             <div>
-              <h3>Business Systems</h3>
+
+              <h3>
+                Business Systems
+              </h3>
 
               <p>
                 CRM platforms, management systems, dashboards, workflow tools,
                 and internal business applications.
               </p>
+
             </div>
+
           </article>
 
+
           <article class="service reveal">
-            <div class="service-number">04</div>
+
+            <div class="service-number">
+              04
+            </div>
 
             <div>
-              <h3>E-Commerce Development</h3>
+
+              <h3>
+                E-Commerce Development
+              </h3>
 
               <p>
                 Modern online stores with product catalogs, shopping carts,
                 checkout experiences, and database integrations.
               </p>
+
             </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- Contact Section -->
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
     <section class="section" id="contact">
+
       <div class="container">
 
         <div class="contact-box reveal">
 
           <div class="contact-copy">
-            <span class="mono">06 / Contact</span>
 
-            <h2>Have an idea?</h2>
+            <span class="mono">
+              06 / Contact
+            </span>
+
+            <h2>
+              Have an idea?
+            </h2>
 
             <p>
               Tell me what you are building, what problem you are solving,
               or where your current application needs improvement.
             </p>
 
+
             <div class="contact-details">
+
               <a href="mailto:mohan.kasani.420@gmail.com">
                 mohan.kasani.420@gmail.com
               </a>
 
-              <a href="https://www.linkedin.com/" target="_blank">
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+              >
                 LinkedIn ↗
               </a>
 
-              <a href="https://github.com/" target="_blank">
+              <a
+                href="https://github.com/"
+                target="_blank"
+              >
                 GitHub ↗
               </a>
+
             </div>
+
           </div>
 
-          <form class="contact-form" id="contactForm">
+
+          <form
+            class="contact-form"
+            id="contactForm"
+          >
 
             <div class="form-row">
+
               <div class="field">
-                <label for="name">Your name</label>
+
+                <label for="name">
+                  Your name
+                </label>
+
                 <input
                   id="name"
                   type="text"
                   required
                   placeholder="Mohan"
                 />
+
               </div>
 
+
               <div class="field">
-                <label for="email">Email address</label>
+
+                <label for="email">
+                  Email address
+                </label>
+
                 <input
                   id="email"
                   type="email"
                   required
                   placeholder="mohan.kasani.420@gmail.com"
                 />
+
               </div>
+
             </div>
 
+
             <div class="field">
-              <label for="subject">Subject</label>
+
+              <label for="subject">
+                Subject
+              </label>
+
               <input
                 id="subject"
                 type="text"
                 required
                 placeholder="Project inquiry"
               />
+
             </div>
 
+
             <div class="field">
-              <label for="message">Message</label>
+
+              <label for="message">
+                Message
+              </label>
+
               <textarea
                 id="message"
                 required
                 placeholder="Tell me about your project..."
               ></textarea>
+
             </div>
 
-            <div class="form-message" id="formMessage"></div>
 
-            <button class="btn btn-primary" type="submit">
+            <div
+              class="form-message"
+              id="formMessage"
+            ></div>
+
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
               Send Message <span>↗</span>
             </button>
 
           </form>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
-  <!-- Footer -->
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <footer>
+
     <div class="container footer-inner">
+
       <p>
-        © <span id="year"></span> Kasani mohan sri sai. Built with purpose.
+        © <span id="year"></span>
+        Kasani mohan sri sai.
+        Built with purpose.
       </p>
 
       <div class="footer-links">
-        <a href="#home">Back to top ↑</a>
-        <a href="https://github.com/" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+
+        <a href="#home">
+          Back to top ↑
+        </a>
+
+        <a
+          href="https://github.com/"
+          target="_blank"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+
       </div>
+
     </div>
+
   </footer>
 
-  <!-- Project Modal -->
-  <div class="modal" id="projectModal" aria-hidden="true">
+
+  <!-- =====================================================
+       PROJECT MODAL
+       ===================================================== -->
+
+  <div
+    class="modal"
+    id="projectModal"
+    aria-hidden="true"
+  >
+
     <div class="modal-content">
 
-      <button class="modal-close" id="modalClose" aria-label="Close modal">
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Close modal"
+      >
         ×
       </button>
 
-      <span class="mono" id="modalCategory"></span>
+      <span
+        class="mono"
+        id="modalCategory"
+      ></span>
 
       <h2 id="modalTitle"></h2>
 
       <p id="modalDescription"></p>
 
-      <div class="project-tags" id="modalTags"></div>
+      <div
+        class="project-tags"
+        id="modalTags"
+      ></div>
 
-      <ul class="modal-features" id="modalFeatures"></ul>
+      <ul
+        class="modal-features"
+        id="modalFeatures"
+      ></ul>
 
       <div class="modal-buttons">
-        <a href="#" class="btn btn-primary btn-small" id="modalDemo" target="_blank">
+
+        <a
+          href="#"
+          class="btn btn-primary btn-small"
+          id="modalDemo"
+          target="_blank"
+        >
           Live Demo ↗
         </a>
 
-        <a href="#" class="btn btn-ghost btn-small" id="modalGithub" target="_blank">
+        <a
+          href="#"
+          class="btn btn-ghost btn-small"
+          id="modalGithub"
+          target="_blank"
+        >
           GitHub ↗
         </a>
+
       </div>
 
     </div>
+
   </div>
 
+
   <script src="js/app.js"></script>
+
 </body>
 </html>
