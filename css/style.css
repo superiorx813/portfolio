@@ -1134,3 +1134,991 @@ footer {
     flex-direction: column;
   }
 }
+
+/* =========================================================
+   MOHAN HANGING LETTERS
+   ========================================================= */
+
+.mohan-name-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  width: fit-content;
+  min-height: 125px;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  padding: 0 5px;
+  perspective: 900px;
+}
+
+.mohan-letter {
+  --letter-rotation: 0deg;
+  --letter-x: 0px;
+  --letter-y: 0px;
+
+  position: relative;
+  width: clamp(48px, 5.2vw, 78px);
+  height: 120px;
+
+  transform:
+    translate3d(
+      var(--letter-x),
+      var(--letter-y),
+      0
+    )
+    rotate(var(--letter-rotation));
+
+  transform-origin: 350% 24px;
+
+  transition:
+    transform 1ms linear;
+
+  will-change: transform;
+  cursor: pointer;
+}
+
+.mohan-thread {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 54px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.08),
+      rgba(66,232,212,0.9)
+    );
+
+  box-shadow:
+    0 0 8px rgba(66,232,212,0.25);
+
+  transform-origin: top center;
+}
+
+.mohan-thread::before {
+  content: "";
+
+  position: absolute;
+  top: -2px;
+  left: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  background: var(--cyan);
+
+  box-shadow:
+    0 0 12px rgba(66,232,212,0.75);
+}
+
+.mohan-char {
+  position: absolute;
+
+  top: 45px;
+  left: 50%;
+
+  display: grid;
+  place-items: center;
+
+  width: clamp(45px, 4.8vw, 70px);
+  height: clamp(55px, 5.5vw, 78px);
+
+  transform: translateX(-50%);
+
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.025)
+    );
+
+  box-shadow:
+    0 14px 35px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease;
+
+  user-select: none;
+}
+
+.mohan-letter:nth-child(1) .mohan-char {
+  color: var(--cyan);
+}
+
+.mohan-letter:nth-child(2) .mohan-char {
+  color: var(--blue);
+}
+
+.mohan-letter:nth-child(3) .mohan-char {
+  color: var(--lime);
+}
+
+.mohan-letter:nth-child(4) .mohan-char {
+  color: #e3a5ff;
+}
+
+.mohan-letter:nth-child(5) .mohan-char {
+  color: var(--cyan);
+}
+.mohan-letter:nth-child(11) .mohan-char {
+  color: var(--cyan);
+}
+
+.mohan-letter:nth-child(7) .mohan-char {
+  color: var(--blue);
+}
+
+.mohan-letter:nth-child(8) .mohan-char {
+  color: var(--lime);
+}
+
+.mohan-letter:nth-child(9) .mohan-char {
+  color: #e3a5ff;
+}
+
+.mohan-letter:nth-child(10) .mohan-char {
+  color: #720d0d;
+}
+.mohan-letter:hover .mohan-char {
+  border-color: rgba(66,232,212,0.65);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(66,232,212,0.16),
+      rgba(91,140,255,0.06)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.4),
+    0 0 28px rgba(66,232,212,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+
+/* =========================================================
+   ID CARD
+   ========================================================= */
+
+.id-card-scene {
+  position: absolute;
+
+  z-index: 8;
+
+  top: 3%;
+  right: -1%;
+
+  width: 380px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  perspective: 1300px;
+}
+
+.id-card-strap {
+  position: relative;
+
+  width: 62px;
+  height: 76px;
+
+  display: flex;
+  justify-content: center;
+
+  z-index: 4;
+}
+
+.strap-line {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 12px;
+  height: 70px;
+
+  transform: translateX(-50%);
+
+  border-radius: 0 0 8px 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #202532,
+      #5b667b,
+      #202532
+    );
+
+  box-shadow:
+    inset 1px 0 rgba(255,255,255,0.15),
+    inset -1px 0 rgba(0,0,0,0.4),
+    0 5px 15px rgba(0,0,0,0.25);
+}
+
+.strap-ring {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 58px;
+  left: 50%;
+
+  width: 27px;
+  height: 27px;
+
+  transform: translateX(-50%);
+
+  border: 4px solid #727d92;
+  border-radius: 50%;
+
+  background: #171b25;
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.45);
+}
+
+
+/* =========================================================
+   3D CARD
+   ========================================================= */
+
+.id-card {
+  position: relative;
+
+  width: 255px;
+  height: 380px;
+
+  margin-top: -3px;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 900ms cubic-bezier(.22,.61,.36,1);
+
+  will-change: transform;
+}
+
+.id-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.id-card-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+}
+
+.id-card-face {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 19px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25,30,43,0.97),
+      rgba(8,11,18,0.97)
+    );
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.5),
+    0 0 45px rgba(66,232,212,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.id-card-face::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(66,232,212,0.10),
+      transparent 35%,
+      rgba(91,140,255,0.08)
+    );
+}
+
+.id-card-face::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -100px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(66,232,212,0.08);
+
+  filter: blur(25px);
+}
+
+.id-card-front {
+  transform: rotateY(0deg);
+}
+
+.id-card-back {
+  transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   ID CARD HEADER
+   ========================================================= */
+
+.id-card-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.id-card-label {
+  color: var(--cyan);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.13em;
+}
+
+.id-card-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--lime);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+}
+
+.id-card-status i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--lime);
+
+  box-shadow:
+    0 0 9px var(--lime);
+}
+
+
+/* =========================================================
+   PHOTO AREA
+   ========================================================= */
+
+.id-photo-area {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 145px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(66,232,212,0.25);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(66,232,212,0.12),
+      rgba(91,140,255,0.08)
+    );
+}
+
+.profile-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 500ms ease;
+}
+
+.id-card:hover .profile-photo {
+  transform: scale(1.04);
+}
+
+.photo-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: var(--cyan);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(66,232,212,0.15),
+      transparent 65%
+    );
+
+  font-family: "DM Mono", monospace;
+  text-align: center;
+}
+
+.photo-placeholder span {
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.photo-placeholder small {
+  color: var(--muted);
+  font-size: 0.5rem;
+}
+
+
+/* =========================================================
+   CARD INFORMATION
+   ========================================================= */
+
+.id-card-info {
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 14px;
+}
+
+.id-small-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #6f788a;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.id-card-info h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 1.18rem;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.id-role {
+  display: block;
+
+  margin-top: 7px;
+
+  color: var(--cyan);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+}
+
+.id-card-tech {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 13px;
+}
+
+.id-card-tech span {
+  padding: 4px 6px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 5px;
+
+  color: var(--muted);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.45rem;
+}
+
+.id-card-footer {
+  position: absolute;
+
+  z-index: 3;
+
+  right: 19px;
+  bottom: 14px;
+  left: 19px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 9px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+
+  color: #697286;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   CARD BACK
+   ========================================================= */
+
+.id-back-mark {
+  display: grid;
+  place-items: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  color: var(--bg);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--lime)
+    );
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.48rem;
+  font-weight: 700;
+}
+
+.back-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+.back-section {
+  padding-bottom: 11px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.back-section strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.back-section p {
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+
+.back-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.back-tech-list span {
+  padding: 4px 6px;
+
+  border: 1px solid rgba(66,232,212,0.18);
+  border-radius: 5px;
+
+  color: var(--cyan);
+
+  background: rgba(66,232,212,0.04);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.45rem;
+}
+
+.back-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.back-line span {
+  color: var(--blue);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.48rem;
+}
+
+
+/* =========================================================
+   FLIP BUTTON
+   ========================================================= */
+
+.flip-card-btn {
+  position: relative;
+
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 15px;
+
+  min-height: 38px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(66,232,212,0.3);
+  border-radius: 999px;
+
+  color: var(--cyan);
+
+  background:
+    rgba(66,232,212,0.05);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.63rem;
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.flip-card-btn:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--cyan);
+
+  background:
+    rgba(66,232,212,0.11);
+
+  box-shadow:
+    0 10px 30px rgb(3, 245, 217);
+}
+
+.flip-icon {
+  display: inline-block;
+
+  font-size: 1rem;
+
+  transition:
+    transform 700ms cubic-bezier(.22,.61,.36,1);
+}
+
+.flip-card-btn.active .flip-icon {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   CODE CARD POSITIONING
+   Existing code-card remains unchanged visually,
+   but ID card gets its own layer.
+   ========================================================= */
+
+.hero-visual .code-card {
+  z-index: 3;
+}
+
+
+/* =========================================================
+   DESKTOP ID CARD PHYSICAL SWING
+   ========================================================= */
+
+.id-card-scene {
+  transform-origin: top center;
+}
+
+.id-card-scene.card-swing {
+  animation:
+    idCardSwing 1.1s cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes idCardSwing {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  18% {
+    transform: rotate(-8deg);
+  }
+
+  42% {
+    transform: rotate(6deg);
+  }
+
+  65% {
+    transform: rotate(-3.5deg);
+  }
+
+  82% {
+    transform: rotate(1.8deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero-grid {
+    gap: 45px;
+  }
+
+  .id-card-scene {
+    right: -2%;
+    transform: scale(0.92);
+    transform-origin: top right;
+  }
+
+  .code-card {
+    width: min(100%, 400px);
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .mohan-name-wrap {
+    margin-top: 24px;
+  }
+
+  .id-card-scene {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    transform: scale(1);
+  }
+
+  .hero-visual {
+    min-height: 620px;
+  }
+
+  .hero-visual .code-card {
+    top: 58%;
+  }
+
+  .floating-pill:first-of-type {
+    top: 5%;
+    right: 3%;
+  }
+
+  .floating-pill:last-of-type {
+    bottom: 5%;
+    left: 2%;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .mohan-name-wrap {
+    gap: 1px;
+
+    min-height: 105px;
+
+    margin-top: 20px;
+    margin-bottom: 4px;
+  }
+
+  .mohan-letter {
+    width: 45px;
+    height: 100px;
+  }
+
+  .mohan-thread {
+    height: 43px;
+  }
+
+  .mohan-char {
+    top: 36px;
+
+    width: 41px;
+    height: 52px;
+
+    border-radius: 9px;
+
+    font-size: 1.65rem;
+  }
+
+  .id-card-scene {
+    margin-top: 0;
+  }
+
+  .id-card {
+    width: 245px;
+    height: 365px;
+  }
+
+  .id-card-face {
+    padding: 18px;
+  }
+
+  .hero-visual {
+    min-height: 570px;
+  }
+
+  .hero-visual .code-card {
+    top: 64%;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .mohan-name-wrap {
+    transform: scale(0.9);
+    transform-origin: left top;
+
+    margin-bottom: -8px;
+  }
+
+  .id-card {
+    width: 230px;
+    height: 345px;
+  }
+
+  .id-photo-area {
+    height: 130px;
+  }
+
+  .id-card-info h3 {
+    font-size: 1.08rem;
+  }
+
+  .hero-visual {
+    min-height: 535px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mohan-letter {
+    transform:
+      translate3d(0,0,0)
+      rotate(0deg) !important;
+
+    transition: none;
+  }
+
+  .id-card {
+    transition: none;
+  }
+
+  .id-card-scene.card-swing {
+    animation: none;
+  }
+
+  .flip-icon {
+    transition: none;
+  }
+
+}

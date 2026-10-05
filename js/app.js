@@ -84,7 +84,7 @@ const projectData = {
       "Structured business data",
       "Responsive dashboard interface"
     ],
-    demo: "https://example.com",
+    demo: "http://localhost:8500/CRM/views/loginform.cfm",
     github: "https://github.com/"
   },
 
@@ -259,3 +259,489 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+/* =========================================================
+   MOHAN HANGING LETTER PHYSICS
+   ========================================================= */
+
+const mohanName = document.getElementById("mohanName");
+const mohanLetters = document.querySelectorAll(".mohan-letter");
+
+if (mohanName && mohanLetters.length) {
+
+  const letterPhysics = [];
+
+  mohanLetters.forEach((letter, index) => {
+
+    letterPhysics.push({
+      element: letter,
+
+      index,
+
+      x: 0,
+      y: 0,
+      rotation: 0,
+
+      targetX: 0,
+      targetY: 0,
+      targetRotation: 0,
+
+      velocityX: 0,
+      velocityY: 0,
+      velocityRotation: 0,
+
+      hover: false,
+
+      phase:
+        index * 0.8 +
+        Math.random() * 0.5
+    });
+
+  });
+
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  let nameRect = null;
+
+
+  function updateNameRect() {
+    nameRect = mohanName.getBoundingClientRect();
+  }
+
+
+  function calculateLetterTargets() {
+
+    if (!nameRect) {
+      updateNameRect();
+    }
+
+    letterPhysics.forEach((item, index) => {
+
+      const rect =
+        item.element.getBoundingClientRect();
+
+      const centerX =
+        rect.left + rect.width / 2;
+
+      const centerY =
+        rect.top + rect.height / 2;
+
+      const distanceX =
+        mouseX - centerX;
+
+      const distanceY =
+        mouseY - centerY;
+
+      const distance =
+        Math.sqrt(
+          distanceX * distanceX +
+          distanceY * distanceY
+        );
+
+      const interactionRadius = 115;
+
+
+      if (distance < interactionRadius) {
+
+        const influence =
+          1 - distance / interactionRadius;
+
+        const direction =
+          distanceX >= 0 ? 1 : -1;
+
+        /*
+         * Horizontal movement.
+         * The closer the mouse is to a letter,
+         * the stronger the movement.
+         */
+        item.targetX =
+          direction *
+          influence *
+          Math.min(
+            Math.abs(distanceX) * 0.24,
+            17
+          );
+
+
+        /*
+         * Small vertical movement.
+         */
+        item.targetY =
+          Math.sin(
+            performance.now() * 0.006 +
+            item.phase
+          ) *
+          influence *
+          3;
+
+
+        /*
+         * Rotation creates the hanging-letter effect.
+         */
+        item.targetRotation =
+          direction *
+          influence *
+          Math.min(
+            Math.abs(distanceX) * 0.08,
+            13
+          );
+
+        item.hover = true;
+
+      } else {
+
+        /*
+         * When mouse leaves,
+         * letters naturally return.
+         */
+        item.targetX = 0;
+        item.targetY = 0;
+        item.targetRotation = 0;
+
+        item.hover = false;
+      }
+
+    });
+
+  }
+
+
+  function animateLetters() {
+
+    calculateLetterTargets();
+
+
+    letterPhysics.forEach(item => {
+
+      /*
+       * Spring force.
+       */
+      const spring = 0.075;
+
+      /*
+       * Damping creates physical inertia.
+       */
+      const damping = 0.82;
+
+
+      const forceX =
+        (item.targetX - item.x) * spring;
+
+      const forceY =
+        (item.targetY - item.y) * spring;
+
+      const forceRotation =
+        (item.targetRotation - item.rotation) *
+        spring;
+
+
+      item.velocityX += forceX;
+      item.velocityY += forceY;
+      item.velocityRotation += forceRotation;
+
+
+      item.velocityX *= damping;
+      item.velocityY *= damping;
+      item.velocityRotation *= damping;
+
+
+      item.x += item.velocityX;
+      item.y += item.velocityY;
+      item.rotation += item.velocityRotation;
+
+
+      item.element.style.setProperty(
+        "--letter-x",
+        `${item.x.toFixed(2)}px`
+      );
+
+      item.element.style.setProperty(
+        "--letter-y",
+        `${item.y.toFixed(2)}px`
+      );
+
+      item.element.style.setProperty(
+        "--letter-rotation",
+        `${item.rotation.toFixed(2)}deg`
+      );
+
+    });
+
+
+    requestAnimationFrame(animateLetters);
+  }
+
+
+  /*
+   * Track mouse movement.
+   */
+  mohanName.addEventListener(
+    "pointermove",
+    event => {
+
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+    }
+  );
+
+
+  /*
+   * Give the letters a small physical impulse
+   * when the pointer enters the name.
+   */
+  mohanName.addEventListener(
+    "pointerenter",
+    event => {
+
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      letterPhysics.forEach((item, index) => {
+
+        const impulse =
+          index % 2 === 0
+            ? 1
+            : -1;
+
+        item.velocityRotation +=
+          impulse * 0.35;
+
+      });
+
+    }
+  );
+
+
+  /*
+   * Reset mouse position when leaving.
+   */
+  mohanName.addEventListener(
+    "pointerleave",
+    () => {
+
+      mouseX = -10000;
+      mouseY = -10000;
+
+    }
+  );
+
+
+  window.addEventListener(
+    "resize",
+    updateNameRect
+  );
+
+
+  updateNameRect();
+
+  /*
+   * Start physics loop.
+   */
+  animateLetters();
+
+}
+
+
+/* =========================================================
+   ID CARD 3D FLIP
+   ========================================================= */
+
+const profileCard =
+  document.getElementById("profileCard");
+
+const flipCardBtn =
+  document.getElementById("flipCardBtn");
+
+
+if (profileCard && flipCardBtn) {
+
+  flipCardBtn.addEventListener(
+    "click",
+    () => {
+
+      const isFlipped =
+        profileCard.classList.toggle("flipped");
+
+      flipCardBtn.classList.toggle(
+        "active",
+        isFlipped
+      );
+
+      flipCardBtn.setAttribute(
+        "aria-pressed",
+        isFlipped ? "true" : "false"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ID CARD PHYSICAL HOVER SWING
+   ========================================================= */
+
+const idCardScene =
+  document.querySelector(".id-card-scene");
+
+
+if (idCardScene) {
+
+  let swingTimeout;
+
+
+  idCardScene.addEventListener(
+    "pointerenter",
+    () => {
+
+      /*
+       * Restart animation cleanly every time.
+       */
+      idCardScene.classList.remove(
+        "card-swing"
+      );
+
+      void idCardScene.offsetWidth;
+
+      idCardScene.classList.add(
+        "card-swing"
+      );
+
+
+      clearTimeout(swingTimeout);
+
+      swingTimeout =
+        setTimeout(() => {
+
+          idCardScene.classList.remove(
+            "card-swing"
+          );
+
+        }, 1150);
+
+    }
+  );
+
+
+  idCardScene.addEventListener(
+    "animationend",
+    () => {
+
+      idCardScene.classList.remove(
+        "card-swing"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ID CARD POINTER-BASED SWING
+   Adds subtle physical response to mouse position.
+   ========================================================= */
+
+if (
+  idCardScene &&
+  window.matchMedia("(hover: hover)").matches
+) {
+
+  let cardMouseX = 0;
+  let cardCurrentRotation = 0;
+
+
+  idCardScene.addEventListener(
+    "pointermove",
+    event => {
+
+      const rect =
+        idCardScene.getBoundingClientRect();
+
+      const relativeX =
+        (event.clientX - rect.left) /
+        rect.width;
+
+      const rotation =
+        (relativeX - 0.5) * 8;
+
+
+      cardMouseX = rotation;
+
+    }
+  );
+
+
+  idCardScene.addEventListener(
+    "pointerleave",
+    () => {
+
+      cardMouseX = 0;
+
+    }
+  );
+
+
+  function animateIdCardSwing() {
+
+    /*
+     * Smooth interpolation.
+     */
+    cardCurrentRotation +=
+      (cardMouseX - cardCurrentRotation) *
+      0.08;
+
+
+    /*
+     * Don't interfere with the CSS swing
+     * animation while it is running.
+     */
+    if (
+      !idCardScene.classList.contains(
+        "card-swing"
+      )
+    ) {
+
+      idCardScene.style.transform =
+        `rotate(${cardCurrentRotation.toFixed(2)}deg)`;
+
+    }
+
+
+    requestAnimationFrame(
+      animateIdCardSwing
+    );
+  }
+
+
+  animateIdCardSwing();
+
+}
+
+/* =========================================================
+   PROFILE PHOTO FALLBACK
+   ========================================================= */
+
+const profilePhoto =
+  document.querySelector(".profile-photo");
+
+const photoPlaceholder =
+  document.querySelector(".photo-placeholder");
+
+if (profilePhoto && photoPlaceholder) {
+
+  profilePhoto.addEventListener(
+    "error",
+    () => {
+
+      profilePhoto.style.display = "none";
+      photoPlaceholder.style.display = "flex";
+
+    }
+  );
+
+}
