@@ -1,1441 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Kasani mohan sri sai | Full-Stack Developer</title>
-
-  <meta
-    name="description"
-    content="Portfolio of a full-stack developer specializing in React, JavaScript, ColdFusion, Node.js, and MySQL."
-  />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b1a">
+  <meta name="description" content="Portfolio of Kasani Mohan Sri Sai — Full-Stack Developer building useful, modern web applications.">
+  <title>Kasani Mohan Sri Sai | Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
 </head>
-
 <body>
-
-  <!-- =====================================================
-       NAVIGATION
-       ===================================================== -->
-
-  <header class="nav-wrap">
-    <div class="container">
-      <nav class="navbar">
-
-        <a href="#home" class="brand">
-          <span class="brand-mark">KS</span>
-          <span>Kasani mohan sri sai</span>
-        </a>
-
-        <div class="nav-links" id="navLinks">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#services">Services</a>
-          <a href="#contact" class="nav-cta">Let's Talk</a>
-        </div>
-
-        <button
-          class="menu-btn"
-          id="menuBtn"
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
-
-      </nav>
-    </div>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Mohan home"><span class="brand-mark">M</span><span>MOHAN<span class="brand-dot">.</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#experience" class="nav-link">Journey</a>
+      <a href="#contact" class="nav-link nav-contact">Let's talk <span>↗</span></a>
+    </nav>
   </header>
 
-
   <main>
-
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <section class="hero section" id="home">
-
-      <div class="container hero-container">
-
-        <!-- =================================================
-             HERO IDENTITY
-
-             65% MOHAN
-             5% GAP
-             30% CARD
-             ================================================= -->
-
-        <div class="hero-identity reveal">
-
-          <!-- ================= MOHAN ================= -->
-
-          <div
-            class="mohan-name-wrap"
-            id="mohanName"
-            aria-label="Mohan"
-          >
-
-            <div class="mohan-letter" data-letter="M">
-              <span class="mohan-thread"></span>
-              <span class="mohan-char">M</span>
-            </div>
-
-            <div class="mohan-letter" data-letter="O">
-              <span class="mohan-thread"></span>
-              <span class="mohan-char">O</span>
-            </div>
-
-            <div class="mohan-letter" data-letter="H">
-              <span class="mohan-thread"></span>
-              <span class="mohan-char">H</span>
-            </div>
-
-            <div class="mohan-letter" data-letter="A">
-              <span class="mohan-thread"></span>
-              <span class="mohan-char">A</span>
-            </div>
-
-            <div class="mohan-letter" data-letter="N">
-              <span class="mohan-thread"></span>
-              <span class="mohan-char">N</span>
-            </div>
-
-          </div>
-
-
-          <!-- ================= ID CARD ================= -->
-
-          <div class="id-card-scene">
-
-            <div class="id-card-strap">
-              <span class="strap-ring"></span>
-              <span class="strap-line"></span>
-            </div>
-
-
-            <div class="id-card" id="profileCard">
-
-              <div class="id-card-inner">
-
-                <!-- FRONT -->
-
-                <div class="id-card-face id-card-front">
-
-                  <div class="id-card-header">
-
-                    <span class="id-card-label">
-                      AURORA / ID
-                    </span>
-
-                    <span class="id-card-status">
-                      <i></i>
-                      ACTIVE
-                    </span>
-
-                  </div>
-
-
-                  <div class="id-photo-area">
-
-                    <img
-                      src="C:\Users\Naren\Downloads\my pic.png"
-                      alt="Kasani Mohan Sri Sai"
-                      class="profile-photo"
-                    />
-
-
-                  </div>
-
-
-                  <div class="id-card-info">
-
-                    <span class="id-small-label">
-                      NAME
-                    </span>
-
-                    <h3>
-                      Kasani Mohan
-                      <br />
-                      Sri Sai
-                    </h3>
-
-                    <span class="id-role">
-                      FULL-STACK DEVELOPER
-                    </span>
-
-                  </div>
-
-
-                  <div class="id-card-tech">
-                    <span>REACT</span>
-                    <span>NODE</span>
-                    <span>MYSQL</span>
-                  </div>
-
-
-                  <div class="id-card-footer">
-                    <span>KS / 001</span>
-                    <span>DEVELOPER</span>
-                  </div>
-
-                </div>
-
-
-                <!-- BACK -->
-
-                <div class="id-card-face id-card-back">
-
-                  <div class="id-card-header">
-
-                    <span class="id-card-label">
-                      PROFILE / DETAILS
-                    </span>
-
-                    <span class="id-back-mark">
-                      KS
-                    </span>
-
-                  </div>
-
-
-                  <div class="back-content">
-
-                    <div class="back-section">
-
-                      <span class="id-small-label">
-                        SPECIALIZATION
-                      </span>
-
-                      <strong>
-                        Full-Stack Web Development
-                      </strong>
-
-                    </div>
-
-
-                    <div class="back-section">
-
-                      <span class="id-small-label">
-                        CORE STACK
-                      </span>
-
-                      <div class="back-tech-list">
-                        <span>React</span>
-                        <span>JavaScript</span>
-                        <span>TypeScript</span>
-                        <span>Node.js</span>
-                        <span>ColdFusion</span>
-                        <span>MySQL</span>
-                      </div>
-
-                    </div>
-
-
-                    <div class="back-section">
-
-                      <span class="id-small-label">
-                        FOCUS
-                      </span>
-
-                      <p>
-                        Building reliable, scalable and user-focused
-                        digital applications.
-                      </p>
-
-                    </div>
-
-
-                    <div class="back-section">
-
-                      <span class="id-small-label">
-                        BUILDING WITH
-                      </span>
-
-                      <div class="back-line">
-                        <span>UI / UX</span>
-                        <span>APIs</span>
-                        <span>DATABASES</span>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-
-                  <div class="id-card-footer">
-                    <span>MOHAN</span>
-                    <span>KS / 001</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <button
-              type="button"
-              class="flip-card-btn"
-              id="flipCardBtn"
-              aria-label="Flip profile card"
-              aria-pressed="false"
-            >
-              <span class="flip-icon">↻</span>
-              Flip Card
-            </button>
-
-          </div>
-
-
-          <!-- ================= BACKGROUND ================= -->
-
-          <div class="visual-orbit"></div>
-
-
-          <!-- ================= FLOATING PILLS ================= -->
-
-          <div class="floating-pill floating-pill-one">
-            <span></span>
-            React / TypeScript
-          </div>
-
-          <div class="floating-pill floating-pill-two">
-            <span></span>
-            MySQL / APIs
-          </div>
-
-
-          <!-- ================= CODE CARD ================= -->
-
-          <div class="code-card">
-
-            <div class="code-top">
-
-              <div class="window-dots">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-
-              <span>developer.config.js</span>
-
-            </div>
-
-
-            <div class="code-line">
-              <span class="line-number">01</span>
-              <span>
-                <span class="code-blue">const</span> developer = {
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">02</span>
-              <span>
-                name:
-                <span class="code-cyan">
-                  'Kasani mohan sri sai'
-                </span>,
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">03</span>
-              <span>
-                role:
-                <span class="code-cyan">
-                  'Full-Stack Developer'
-                </span>,
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">04</span>
-              <span>
-                focus: [
-                <span class="code-cyan">'UI'</span>,
-                <span class="code-cyan">'APIs'</span>
-                ],
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">05</span>
-              <span>
-                coffee:
-                <span class="code-lime">true</span>
-              </span>
-            </div>
-
-            <div class="code-line">
-              <span class="line-number">06</span>
-              <span>}</span>
-            </div>
-
-          </div>
-
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> AVAILABLE FOR OPPORTUNITIES</p>
+        <h1>Building digital<br><span class="gradient-text">experiences</span> that<br>make a difference.</h1>
+        <p class="hero-description">I'm <strong>Kasani Mohan Sri Sai</strong>, a full-stack developer who enjoys turning ideas into clean, useful, and engaging web applications.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="button button-quiet" href="#contact">Get in touch <span>→</span></a>
         </div>
-
-
-        <!-- =================================================
-             HERO CONTENT
-             ================================================= -->
-
-        <div class="hero-content reveal">
-
-          <div class="availability">
-            <i></i>
-            Available for selected opportunities
-          </div>
-
-
-          <h1>
-            I build digital products that
-            <span class="gradient-text">
-              move businesses forward.
-            </span>
-          </h1>
-
-
-          <p class="hero-description">
-            Full-stack developer creating reliable, scalable, and user-focused
-            web applications with React, JavaScript, ColdFusion, Node.js, and MySQL.
-          </p>
-
-
-          <div class="hero-actions">
-
-            <a href="#projects" class="btn btn-primary">
-              View My Work <span>↗</span>
-            </a>
-
-            <a
-              href="assets/resume.pdf"
-              class="btn btn-ghost"
-              download
-            >
-              Download Resume
-            </a>
-
-          </div>
-
-
-          <div class="hero-meta">
-
-            <div>
-              <strong>07+</strong>
-              Technologies
-            </div>
-
-            <div>
-              <strong>03</strong>
-              Featured applications
-            </div>
-
-            <div>
-              <strong>Full-stack</strong>
-              Development
-            </div>
-
-          </div>
-
+        <div class="hero-meta">
+          <div><span class="meta-number">01</span><span class="meta-label">Curious mind</span></div>
+          <div><span class="meta-number">02</span><span class="meta-label">Practical builder</span></div>
+          <div><span class="meta-number">03</span><span class="meta-label">Always learning</span></div>
         </div>
-
       </div>
 
-    </section>
-
-
-    <!-- =====================================================
-         ABOUT
-         ===================================================== -->
-
-    <section class="section" id="about">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-            <span class="mono">01 / About Me</span>
-
-            <h2>
-              Building with purpose, not just pixels.
-            </h2>
-          </div>
-
-          <p>
-            I combine technical knowledge, business understanding, and thoughtful
-            design to create applications that are useful and easy to use.
-          </p>
-
+      <div class="hero-visual reveal">
+        <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
+        <div class="visual-label label-top"><span class="tiny-square"></span> DEVELOPER / CREATOR</div>
+        <div class="hanging-name" aria-label="Mohan">
+          <span class="hang-letter" style="--i:0">M</span><span class="hang-letter" style="--i:1">O</span><span class="hang-letter" style="--i:2">H</span><span class="hang-letter" style="--i:3">A</span><span class="hang-letter" style="--i:4">N</span>
         </div>
-
-
-        <div class="about-grid">
-
-          <div class="about-number reveal">
-            01
-          </div>
-
-          <div class="about-content reveal">
-
-            <h3>
-              I turn complicated requirements into focused digital experiences.
-            </h3>
-
-            <p>
-              My experience includes building CRM applications, project management
-              platforms, dashboards, and complete e-commerce systems. I work across
-              frontend, backend, and database layers to deliver dependable
-              applications from concept to completion.
-            </p>
-
-
-            <div class="stats">
-
-              <div class="stat">
-                <strong>07+</strong>
-                <span>Core technologies</span>
+        <div class="id-card-wrap" id="idCardWrap">
+          <div class="id-card" id="idCard" tabindex="0" role="button" aria-label="Flip developer profile card">
+            <div class="id-card-face id-card-front">
+              <div class="card-topline"><span class="card-chip">PORTFOLIO / 2026</span><span class="card-symbol">✳</span></div>
+              <div class="profile-photo-frame">
+                <img src="assets\images\profile.png" alt="Portrait of Kasani Mohan Sri Sai" id="profilePhoto">
+                <div class="photo-fallback" id="photoFallback">MS</div>
               </div>
-
-              <div class="stat">
-                <strong>03</strong>
-                <span>Major applications</span>
+              <div class="id-card-info">
+                <p class="card-kicker">FULL-STACK DEVELOPER</p>
+                <h2>Kasani Mohan<br>Sri Sai</h2>
+                <p class="card-location"><span>⌖</span> India <span class="location-divider">/</span> Open to opportunities</p>
               </div>
-
-              <div class="stat">
-                <strong>360°</strong>
-                <span>Development mindset</span>
-              </div>
-
+              <div class="card-bottomline"><span>DESIGN · DEVELOP · IMPROVE</span><span class="card-arrow">↗</span></div>
             </div>
-
+            <div class="id-card-face id-card-back">
+              <div class="card-topline"><span class="card-chip">QUICK PROFILE</span><span class="card-symbol">✳</span></div>
+              <p class="back-label">MY APPROACH</p>
+              <h2>Learn it.<br>Build it.<br><span class="gradient-text">Make it better.</span></h2>
+              <p class="back-description">Focused on responsive interfaces, reliable backend logic, and practical solutions to real problems.</p>
+              <a href="#contact" class="card-back-link">LET'S CONNECT <span>↗</span></a>
+              <div class="back-decoration">MS / 01</div>
+            </div>
           </div>
-
         </div>
-
+        <div class="floating-tag tag-code"><span>&lt;/&gt;</span> clean code</div>
+        <div class="floating-tag tag-build"><span class="tag-pulse"></span> always building</div>
+        <div class="visual-label label-bottom">CREATIVE THINKING <span>✳</span> TECHNICAL EXECUTION</div>
       </div>
-
+      <a href="#about" class="scroll-cue"><span class="scroll-line"></span> SCROLL TO DISCOVER</a>
     </section>
 
-
-    <!-- =====================================================
-         SKILLS
-         ===================================================== -->
-
-    <section class="section" id="skills">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-            <span class="mono">02 / Expertise</span>
-
-            <h2>
-              The tools behind the work.
-            </h2>
-          </div>
-
-          <p>
-            A practical technology stack for developing modern, scalable,
-            database-driven applications.
-          </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-          <article class="skill-card reveal">
-
-            <div class="skill-icon">UI</div>
-
-            <h3>Frontend Development</h3>
-
-            <p>
-              Responsive and interactive interfaces designed around real user needs.
-            </p>
-
-            <div class="tech-list">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>React</span>
-            </div>
-
-          </article>
-
-
-          <article class="skill-card reveal">
-
-            <div class="skill-icon">JS</div>
-
-            <h3>Modern JavaScript</h3>
-
-            <p>
-              Component-driven applications with clean and maintainable code.
-            </p>
-
-            <div class="tech-list">
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>ES6+</span>
-              <span>Bootstrap</span>
-            </div>
-
-          </article>
-
-
-          <article class="skill-card reveal">
-
-            <div class="skill-icon">API</div>
-
-            <h3>Backend Systems</h3>
-
-            <p>
-              Business logic, server-side workflows, and application integrations.
-            </p>
-
-            <div class="tech-list">
-              <span>Node.js</span>
-              <span>ColdFusion</span>
-              <span>REST APIs</span>
-            </div>
-
-          </article>
-
-
-          <article class="skill-card reveal">
-
-            <div class="skill-icon">DB</div>
-
-            <h3>Database Development</h3>
-
-            <p>
-              Structured data models and reliable database-backed functionality.
-            </p>
-
-            <div class="tech-list">
-              <span>MySQL</span>
-              <span>CRUD</span>
-              <span>Queries</span>
-            </div>
-
-          </article>
-
-        </div>
-
+    <section class="section-shell about-section" id="about">
+      <div class="section-heading reveal"><p class="eyebrow">01 / A LITTLE ABOUT ME</p><h2>Developer by practice.<br><span class="muted-heading">Problem-solver by nature.</span></h2></div>
+      <div class="about-grid">
+        <div class="about-lead reveal"><span class="quote-mark">“</span><p>I like creating things that are not only visually clear, but also work well behind the scenes.</p></div>
+        <div class="about-body reveal"><p>I'm Kasani Mohan Sri Sai, a developer interested in building full-stack applications, improving user experiences, and learning how modern software works from the inside out.</p><p>My work includes web interfaces, database-connected features, API integration, authentication flows, and application management tools. I enjoy breaking complex tasks into smaller steps and improving a project through testing and iteration.</p><div class="about-signature">Curiosity drives the process <span>✳</span></div></div>
       </div>
-
+      <div class="stats-row reveal"><div class="stat-item"><strong>FULL-STACK</strong><span>Mindset</span></div><div class="stat-item"><strong>END-TO-END</strong><span>Implementation</span></div><div class="stat-item"><strong>CONTINUOUS</strong><span>Learning</span></div><div class="stat-item"><strong>USER-FIRST</strong><span>Thinking</span></div></div>
     </section>
 
-
-    <!-- =====================================================
-         PROJECTS
-         ===================================================== -->
-
-    <section class="section" id="projects">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-            <span class="mono">03 / Selected Work</span>
-
-            <h2>
-              Projects built to solve real problems.
-            </h2>
-          </div>
-
-          <p>
-            Applications created to improve workflows, organize information,
-            and deliver better digital experiences.
-          </p>
-
-        </div>
-
-
-        <div class="project-filters reveal">
-
-          <button
-            class="filter-btn active"
-            data-filter="all"
-          >
-            All Projects
-          </button>
-
-          <button
-            class="filter-btn"
-            data-filter="frontend"
-          >
-            Frontend
-          </button>
-
-          <button
-            class="filter-btn"
-            data-filter="business"
-          >
-            Business Systems
-          </button>
-
-          <button
-            class="filter-btn"
-            data-filter="ecommerce"
-          >
-            E-Commerce
-          </button>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-          <article
-            class="project-card featured reveal"
-            data-category="business"
-          >
-
-            <div class="project-visual">
-
-              <div class="dashboard">
-
-                <div class="dashboard-top">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-
-                <div class="dashboard-layout">
-
-                  <div class="dashboard-side"></div>
-
-                  <div class="dashboard-main">
-
-                    <div class="dashboard-heading"></div>
-
-                    <div class="chart">
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="project-content">
-
-              <span class="mono">
-                01 / Business Application
-              </span>
-
-              <h3>
-                Customer Relationship Management
-              </h3>
-
-              <p>
-                A database-driven CRM application designed to organize customer
-                data, simplify workflows, and improve business productivity.
-              </p>
-
-              <div class="project-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">ColdFusion</span>
-                <span class="tag">MySQL</span>
-              </div>
-
-              <button
-                class="project-link open-modal"
-                data-project="crm"
-              >
-                View case study <span>↗</span>
-              </button>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="project-card reveal"
-            data-category="frontend business"
-          >
-
-            <div class="project-visual">
-
-              <div class="dashboard">
-
-                <div class="dashboard-top">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-
-                <div class="dashboard-layout">
-
-                  <div class="dashboard-side"></div>
-
-                  <div class="dashboard-main">
-
-                    <div class="dashboard-heading blue"></div>
-
-                    <div class="chart">
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="project-content">
-
-              <span class="mono">
-                02 / Management Platform
-              </span>
-
-              <h3>
-                Project Management System
-              </h3>
-
-              <p>
-                A React-based system for organizing projects, tracking tasks,
-                and managing team workflows.
-              </p>
-
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">Dashboard</span>
-              </div>
-
-              <button
-                class="project-link open-modal"
-                data-project="project-management"
-              >
-                View case study <span>↗</span>
-              </button>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="project-card reveal"
-            data-category="frontend ecommerce"
-          >
-
-            <div class="project-visual">
-
-              <div class="dashboard">
-
-                <div class="dashboard-top">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-
-                <div class="dashboard-layout">
-
-                  <div class="dashboard-side"></div>
-
-                  <div class="dashboard-main">
-
-                    <div class="dashboard-heading lime"></div>
-
-                    <div class="chart">
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="project-content">
-
-              <span class="mono">
-                03 / Commerce Experience
-              </span>
-
-              <h3>
-                E-Commerce Application
-              </h3>
-
-              <p>
-                A complete shopping experience with product browsing, cart
-                functionality, responsive UI, and database integration.
-              </p>
-
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Bootstrap</span>
-                <span class="tag">MySQL</span>
-              </div>
-
-              <button
-                class="project-link open-modal"
-                data-project="ecommerce"
-              >
-                View case study <span>↗</span>
-              </button>
-
-            </div>
-
-          </article>
-
-        </div>
-
+    <section class="section-shell skills-section" id="skills">
+      <div class="section-heading reveal"><p class="eyebrow">02 / MY TOOLKIT</p><h2>Tools I use to<br><span class="muted-heading">turn ideas into products.</span></h2><p class="section-intro">A growing toolkit for designing, building, connecting, and improving web applications.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card reveal"><div class="skill-icon">⌘</div><h3>Frontend</h3><p>Building responsive interfaces with attention to usability, layout, and interaction.</p><div class="skill-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span><span>TypeScript</span></div></article>
+        <article class="skill-card reveal"><div class="skill-icon">⌁</div><h3>Backend & APIs</h3><p>Connecting UI to server logic, validating data, and building application features.</p><div class="skill-tags"><span>Node.js</span><span>Express</span><span>REST APIs</span><span>ColdFusion</span><span>Lucee</span></div></article>
+        <article class="skill-card reveal"><div class="skill-icon">▤</div><h3>Data & Storage</h3><p>Working with structured data, database queries, and application persistence.</p><div class="skill-tags"><span>MongoDB</span><span>MySQL</span><span>SQL</span><span>Data modelling</span></div></article>
+        <article class="skill-card reveal"><div class="skill-icon">◈</div><h3>Tools & Workflow</h3><p>Using development tools to test, track, containerize, and deliver projects.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Docker</span><span>Kubernetes</span><span>Postman</span><span>PowerShell</span></div></article>
       </div>
-
+      <p class="skills-note reveal"><span>✳</span> My toolkit keeps growing as I take on new challenges and projects.</p>
     </section>
 
-
-    <!-- =====================================================
-         EXPERIENCE
-         ===================================================== -->
-
-    <section class="section" id="experience">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-            <span class="mono">04 / Experience</span>
-
-            <h2>
-              From idea to working product.
-            </h2>
-          </div>
-
-          <p>
-            My development approach covers planning, interface construction,
-            backend logic, data, testing, and refinement.
-          </p>
-
-        </div>
-
-
-        <div class="experience-list">
-
-          <article class="experience-item reveal">
-
-            <div class="experience-year">
-              PHASE 01
-            </div>
-
-            <div class="experience-body">
-
-              <h3>
-                Product Understanding
-              </h3>
-
-              <p>
-                Translate business requirements into clear application structures,
-                user flows, and technical priorities.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="experience-item reveal">
-
-            <div class="experience-year">
-              PHASE 02
-            </div>
-
-            <div class="experience-body">
-
-              <h3>
-                Interface Development
-              </h3>
-
-              <p>
-                Build responsive and accessible interfaces with reusable components,
-                thoughtful layouts, and polished interactions.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="experience-item reveal">
-
-            <div class="experience-year">
-              PHASE 03
-            </div>
-
-            <div class="experience-body">
-
-              <h3>
-                Backend and Database
-              </h3>
-
-              <p>
-                Connect applications to server-side logic, APIs, MySQL databases,
-                workflows, and business operations.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="experience-item reveal">
-
-            <div class="experience-year">
-              PHASE 04
-            </div>
-
-            <div class="experience-body">
-
-              <h3>
-                Testing and Refinement
-              </h3>
-
-              <p>
-                Review usability, responsiveness, performance, and reliability
-                to create a better final product.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
+    <section class="section-shell projects-section" id="projects">
+      <div class="projects-heading-row"><div class="section-heading reveal"><p class="eyebrow">03 / SELECTED WORK</p><h2>Projects built with<br><span class="muted-heading">purpose and curiosity.</span></h2></div><p class="projects-side-note reveal">A selection of practical projects where I connect interface, logic, and data.</p></div>
+      <div class="project-filters reveal" role="group" aria-label="Filter projects"><button class="filter-button active" data-filter="all">All work <span>03</span></button><button class="filter-button" data-filter="web">Web apps</button><button class="filter-button" data-filter="fullstack">Full-stack</button></div>
+      <div class="projects-grid" id="projectsGrid">
+        <article class="project-card reveal" data-category="fullstack web" data-project="crm"><div class="project-art art-crm"><div class="mock-window"><div class="mock-window-top"><i></i><i></i><i></i><span>customer / overview</span></div><div class="mock-dashboard"><aside><b></b><b></b><b></b><b></b></aside><div class="mock-content"><div class="mock-title"></div><div class="mock-stats"><i></i><i></i><i></i></div><div class="mock-table"><i></i><i></i><i></i><i></i></div></div></div></div><span class="art-caption">01 / CUSTOMER SYSTEM</span></div><div class="project-card-body"><div class="project-title-row"><h3>Customer Management System</h3><span class="project-index">01</span></div><p>A customer management application with customer records, search, form handling, and a structured interface.</p><div class="project-tech"><span>ColdFusion</span><span>MySQL</span><span>JavaScript</span></div><button class="project-open" data-open-project="crm">Explore project <span>↗</span></button></div></article>
+        <article class="project-card reveal" data-category="fullstack web" data-project="project-management"><div class="project-art art-board"><div class="board-window"><div class="board-top"><span>PROJECT SPACE</span><b>•••</b></div><div class="board-columns"><div><i></i><b></b><b></b><b></b></div><div><i></i><b></b><b></b></div><div><i></i><b></b><b></b><b></b></div></div></div><span class="art-caption">02 / WORKFLOW APP</span></div><div class="project-card-body"><div class="project-title-row"><h3>Project Management App</h3><span class="project-index">02</span></div><p>A task and project management experience inspired by collaborative boards and clear work tracking.</p><div class="project-tech"><span>Next.js</span><span>TypeScript</span><span>MongoDB</span></div><button class="project-open" data-open-project="project-management">Explore project <span>↗</span></button></div></article>
+        <article class="project-card reveal" data-category="fullstack web" data-project="ecommerce"><div class="project-art art-store"><div class="store-window"><div class="store-nav"><span>AURORA</span><i></i><i></i><i></i></div><div class="store-hero"><div><b>Everyday<br>essentials.</b><i></i></div><div class="store-product"></div></div><div class="store-items"><i></i><i></i><i></i></div></div><span class="art-caption">03 / COMMERCE EXPERIENCE</span></div><div class="project-card-body"><div class="project-title-row"><h3>Aurora Commerce</h3><span class="project-index">03</span></div><p>An e-commerce application with customer-facing shopping flows and admin product and order management.</p><div class="project-tech"><span>Next.js</span><span>TypeScript</span><span>Database</span></div><button class="project-open" data-open-project="ecommerce">Explore project <span>↗</span></button></div></article>
       </div>
-
     </section>
 
-
-    <!-- =====================================================
-         SERVICES
-         ===================================================== -->
-
-    <section class="section" id="services">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-            <span class="mono">05 / Services</span>
-
-            <h2>
-              Ways I can help build your next product.
-            </h2>
-          </div>
-
-          <p>
-            Flexible development support for new products, internal systems,
-            and existing applications.
-          </p>
-
-        </div>
-
-
-        <div class="services-grid">
-
-          <article class="service reveal">
-
-            <div class="service-number">
-              01
-            </div>
-
-            <div>
-
-              <h3>
-                Frontend Development
-              </h3>
-
-              <p>
-                Responsive, interactive, and accessible websites using React,
-                JavaScript, TypeScript, HTML, CSS, and Bootstrap.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="service reveal">
-
-            <div class="service-number">
-              02
-            </div>
-
-            <div>
-
-              <h3>
-                Full-Stack Applications
-              </h3>
-
-              <p>
-                Complete web applications with frontend interfaces, backend logic,
-                APIs, authentication, and database functionality.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="service reveal">
-
-            <div class="service-number">
-              03
-            </div>
-
-            <div>
-
-              <h3>
-                Business Systems
-              </h3>
-
-              <p>
-                CRM platforms, management systems, dashboards, workflow tools,
-                and internal business applications.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="service reveal">
-
-            <div class="service-number">
-              04
-            </div>
-
-            <div>
-
-              <h3>
-                E-Commerce Development
-              </h3>
-
-              <p>
-                Modern online stores with product catalogs, shopping carts,
-                checkout experiences, and database integrations.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
+    <section class="section-shell journey-section" id="experience">
+      <div class="section-heading reveal"><p class="eyebrow">04 / THE JOURNEY</p><h2>Learning by doing.<br><span class="muted-heading">Improving with every build.</span></h2></div>
+      <div class="journey-list">
+        <article class="journey-item reveal"><span class="journey-number">01</span><div><p class="journey-type">APPLICATION DEVELOPMENT</p><h3>Building practical web applications</h3><p>Working across UI development, forms, authentication, CRUD operations, APIs, and database integration.</p></div><span class="journey-mark">↗</span></article>
+        <article class="journey-item reveal"><span class="journey-number">02</span><div><p class="journey-type">BACKEND & DATA</p><h3>Understanding what powers the interface</h3><p>Practicing server-side logic, SQL, MongoDB, REST endpoints, validation, and secure data handling.</p></div><span class="journey-mark">↗</span></article>
+        <article class="journey-item reveal"><span class="journey-number">03</span><div><p class="journey-type">DEVOPS & DELIVERY</p><h3>Exploring the path from code to deployment</h3><p>Learning Git workflows, Docker, Kubernetes fundamentals, CI/CD, and cloud container registries.</p></div><span class="journey-mark">↗</span></article>
       </div>
-
     </section>
 
-
-    <!-- =====================================================
-         CONTACT
-         ===================================================== -->
-
-    <section class="section" id="contact">
-
-      <div class="container">
-
-        <div class="contact-box reveal">
-
-          <div class="contact-copy">
-
-            <span class="mono">
-              06 / Contact
-            </span>
-
-            <h2>
-              Have an idea?
-            </h2>
-
-            <p>
-              Tell me what you are building, what problem you are solving,
-              or where your current application needs improvement.
-            </p>
-
-
-            <div class="contact-details">
-
-              <a href="mailto:mohan.kasani.420@gmail.com">
-                mohan.kasani.420@gmail.com
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-              >
-                LinkedIn ↗
-              </a>
-
-              <a
-                href="https://github.com/"
-                target="_blank"
-              >
-                GitHub ↗
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <form
-            class="contact-form"
-            id="contactForm"
-          >
-
-            <div class="form-row">
-
-              <div class="field">
-
-                <label for="name">
-                  Your name
-                </label>
-
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  placeholder="Mohan"
-                />
-
-              </div>
-
-
-              <div class="field">
-
-                <label for="email">
-                  Email address
-                </label>
-
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="mohan.kasani.420@gmail.com"
-                />
-
-              </div>
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="subject">
-                Subject
-              </label>
-
-              <input
-                id="subject"
-                type="text"
-                required
-                placeholder="Project inquiry"
-              />
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="message">
-                Message
-              </label>
-
-              <textarea
-                id="message"
-                required
-                placeholder="Tell me about your project..."
-              ></textarea>
-
-            </div>
-
-
-            <div
-              class="form-message"
-              id="formMessage"
-            ></div>
-
-
-            <button
-              class="btn btn-primary"
-              type="submit"
-            >
-              Send Message <span>↗</span>
-            </button>
-
-          </form>
-
-        </div>
-
+    <section class="section-shell services-section" id="services">
+      <div class="section-heading reveal"><p class="eyebrow">05 / WHAT I CAN HELP WITH</p><h2>From first idea<br><span class="muted-heading">to a working experience.</span></h2></div>
+      <div class="services-grid">
+        <article class="service-card reveal"><span>01</span><div class="service-icon">◫</div><h3>Web UI Development</h3><p>Responsive pages with clean layouts, thoughtful spacing, and polished interactions.</p><span class="service-arrow">↗</span></article>
+        <article class="service-card reveal"><span>02</span><div class="service-icon">⌘</div><h3>Full-Stack Features</h3><p>Forms, authentication flows, CRUD functionality, APIs, and database-connected features.</p><span class="service-arrow">↗</span></article>
+        <article class="service-card reveal"><span>03</span><div class="service-icon">◇</div><h3>UI Improvements</h3><p>Improving consistency, accessibility, responsiveness, and the overall user experience.</p><span class="service-arrow">↗</span></article>
       </div>
-
     </section>
 
+    <section class="contact-section" id="contact">
+      <div class="contact-inner section-shell">
+        <div class="contact-copy reveal"><p class="eyebrow"><span class="status-dot"></span> HAVE A PROJECT IN MIND?</p><h2>Let's make<br><span class="gradient-text">something useful.</span></h2><p>Have an idea, a collaboration in mind, or just want to connect? Send me a message.</p><a class="contact-email" href="mailto:mohan.kasani.420@gmail.com">mohan.kasani.420@gmail.com <span>↗</span></a></div>
+        <form class="contact-form reveal" id="contactForm">
+          <label for="contactName">Your name</label><input id="contactName" name="name" type="text" placeholder="What should I call you?" required>
+          <label for="contactEmail">Email address</label><input id="contactEmail" name="email" type="email" placeholder="you@example.com" required>
+          <label for="contactMessage">What would you like to talk about?</label><textarea id="contactMessage" name="message" rows="4" placeholder="Tell me a little about your idea..." required></textarea>
+          <button class="button button-primary submit-button" type="submit">Send a message <span>↗</span></button>
+          <p class="form-note">This opens your default email application to send the message.</p>
+        </form>
+      </div>
+    </section>
   </main>
 
+  <footer class="site-footer section-shell"><a class="brand" href="#home"><span class="brand-mark">M</span><span>MOHAN<span class="brand-dot">.</span></span></a><p>Designed with curiosity. Built with care.</p><div class="footer-right"><span>© <span id="currentYear"></span> Kasani Mohan Sri Sai</span><a href="#top">BACK TO TOP ↑</a></div></footer>
 
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
-
-  <footer>
-
-    <div class="container footer-inner">
-
-      <p>
-        © <span id="year"></span>
-        Kasani mohan sri sai.
-        Built with purpose.
-      </p>
-
-      <div class="footer-links">
-
-        <a href="#home">
-          Back to top ↑
-        </a>
-
-        <a
-          href="https://github.com/"
-          target="_blank"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-        >
-          LinkedIn
-        </a>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =====================================================
-       PROJECT MODAL
-       ===================================================== -->
-
-  <div
-    class="modal"
-    id="projectModal"
-    aria-hidden="true"
-  >
-
-    <div class="modal-content">
-
-      <button
-        class="modal-close"
-        id="modalClose"
-        aria-label="Close modal"
-      >
-        ×
-      </button>
-
-      <span
-        class="mono"
-        id="modalCategory"
-      ></span>
-
-      <h2 id="modalTitle"></h2>
-
-      <p id="modalDescription"></p>
-
-      <div
-        class="project-tags"
-        id="modalTags"
-      ></div>
-
-      <ul
-        class="modal-features"
-        id="modalFeatures"
-      ></ul>
-
-      <div class="modal-buttons">
-
-        <a
-          href="#"
-          class="btn btn-primary btn-small"
-          id="modalDemo"
-          target="_blank"
-        >
-          Live Demo ↗
-        </a>
-
-        <a
-          href="#"
-          class="btn btn-ghost btn-small"
-          id="modalGithub"
-          target="_blank"
-        >
-          GitHub ↗
-        </a>
-
-      </div>
-
-    </div>
-
+  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel"><button class="modal-close" id="modalClose" aria-label="Close project details">×</button><p class="eyebrow" id="modalEyebrow">PROJECT DETAILS</p><h2 id="modalTitle">Project title</h2><p id="modalDescription"></p><div class="modal-tech" id="modalTech"></div><div class="modal-actions"><a class="button button-primary" id="modalLiveLink" href="#" target="_blank" rel="noopener noreferrer">Live project <span>↗</span></a><a class="button button-quiet" id="modalRepoLink" href="#" target="_blank" rel="noopener noreferrer">Source code <span>↗</span></a></div><p class="modal-link-note" id="modalLinkNote"></p></div>
   </div>
-
-
-  <script src="js/app.js"></script>
-
 </body>
 </html>

@@ -1,483 +1,208 @@
-
+/* Portfolio interactions — keep project URLs updated in projectData below. */
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================================================
-     MOBILE NAVIGATION
-  ========================================================= */
+  const menuToggle = document.getElementById("menuToggle");
+  const mainNav = document.getElementById("mainNav");
+  const navLinks = [...document.querySelectorAll(".nav-link")];
 
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
-
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("active");
-
-      menuBtn.setAttribute(
-        "aria-label",
-        isOpen ? "Close menu" : "Open menu"
-      );
-
-      menuBtn.textContent = isOpen ? "×" : "☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuBtn.classList.remove("active");
-
-        menuBtn.setAttribute("aria-label", "Open menu");
-        menuBtn.textContent = "☰";
-      });
-    });
-  }
-
-
-  /* =========================================================
-     PROJECT FILTERS
-  ========================================================= */
-
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-
-      filterButtons.forEach((btn) => {
-        btn.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
-      projectCards.forEach((card) => {
-        const categories = card.dataset.category || "";
-
-        if (filter === "all" || categories.includes(filter)) {
-          card.style.display = "";
-          requestAnimationFrame(() => {
-            card.classList.remove("project-hidden");
-          });
-        } else {
-          card.classList.add("project-hidden");
-
-          setTimeout(() => {
-            if (card.classList.contains("project-hidden")) {
-              card.style.display = "none";
-            }
-          }, 250);
-        }
-      });
-    });
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   });
 
+  navLinks.forEach(link => link.addEventListener("click", () => {
+    mainNav.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }));
 
-  /* =========================================================
-     PROJECT CASE STUDY MODAL
-  ========================================================= */
+  // Reveal sections as they enter the viewport.
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(item => revealObserver.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add("is-visible"));
+  }
 
-  const projectModal = document.getElementById("projectModal");
-  const modalClose = document.getElementById("modalClose");
+  // Highlight the navigation link for the visible section.
+  const sections = [...document.querySelectorAll("main section[id]")];
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
 
-  const modalCategory = document.getElementById("modalCategory");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDescription = document.getElementById("modalDescription");
-  const modalTags = document.getElementById("modalTags");
-  const modalFeatures = document.getElementById("modalFeatures");
-  const modalDemo = document.getElementById("modalDemo");
-  const modalGithub = document.getElementById("modalGithub");
+  // Project filters.
+  const filterButtons = [...document.querySelectorAll(".filter-button")];
+  const projectCards = [...document.querySelectorAll(".project-card")];
+  filterButtons.forEach(button => button.addEventListener("click", () => {
+    filterButtons.forEach(item => item.classList.toggle("active", item === button));
+    const filter = button.dataset.filter;
+    projectCards.forEach(card => {
+      const categories = (card.dataset.category || "").split(/\s+/);
+      card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+    });
+  }));
 
+  // Add your real project URLs here when ready.
   const projectData = {
     crm: {
-      category: "01 / Business Application",
-      title: "Customer Relationship Management",
-      description:
-        "A database-driven CRM application designed to organize customer information, simplify business workflows, and provide a centralized platform for managing customer-related operations.",
-      tags: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "ColdFusion",
-        "MySQL"
-      ],
-      features: [
-        "Customer information management",
-        "Database-driven business workflows",
-        "Customer records and organization",
-        "Responsive dashboard interface",
-        "MySQL database integration"
-      ],
-      demo: "http://localhost:8500/CRM/views/loginform.cfm",
-      github: "https://github.com/superiorx813/CRM-NEW-VERSION"
+      title: "Customer Management System",
+      category: "FULL-STACK WEB APPLICATION",
+      description: "A customer management application built around customer records, form validation, search, edit flows, database operations, and a consistent interface. The project helped me practice connecting frontend interactions with server-side functionality.",
+      tech: ["ColdFusion", "MySQL", "JavaScript", "CSS"],
+      live: "",
+      repo: ""
     },
-
     "project-management": {
-      category: "02 / Management Platform",
-      title: "Project Management System",
-      description:
-        "A React-based project management platform designed to organize projects, track tasks, manage workflows, and provide a structured interface for teams.",
-      tags: [
-        "React",
-        "JavaScript",
-        "MySQL",
-        "Dashboard"
-      ],
-      features: [
-        "Project organization",
-        "Task tracking",
-        "Workflow management",
-        "Responsive dashboard",
-        "Database-backed application"
-      ],
-      demo: "#",
-      github: "#"
+      title: "Project Management App",
+      category: "FULL-STACK WEB APPLICATION",
+      description: "A project and task management application concept with authentication, dashboard pages, project organization, and database-backed features. Built while learning modern Next.js and TypeScript application patterns.",
+      tech: ["Next.js", "TypeScript", "React", "MongoDB"],
+      live: "",
+      repo: ""
     },
-
     ecommerce: {
-      category: "03 / Commerce Experience",
-      title: "E-Commerce Application",
-      description:
-        "A complete e-commerce experience featuring product browsing, shopping cart functionality, responsive interfaces, and database integration.",
-      tags: [
-        "React",
-        "TypeScript",
-        "Bootstrap",
-        "MySQL"
-      ],
-      features: [
-        "Product browsing",
-        "Shopping cart functionality",
-        "Responsive e-commerce interface",
-        "Product and database integration",
-        "Modern customer experience"
-      ],
-      demo: "#",
-      github: "#"
+      title: "Aurora Commerce",
+      category: "E-COMMERCE APPLICATION",
+      description: "An e-commerce application with product management, product creation forms, database integration, and an admin area for working with orders and customers. The focus is on practical workflows and a polished user experience.",
+      tech: ["Next.js", "TypeScript", "React", "Database"],
+      live: "",
+      repo: ""
     }
   };
 
+  const modal = document.getElementById("projectModal");
+  const modalClose = document.getElementById("modalClose");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalEyebrow = document.getElementById("modalEyebrow");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalTech = document.getElementById("modalTech");
+  const modalLiveLink = document.getElementById("modalLiveLink");
+  const modalRepoLink = document.getElementById("modalRepoLink");
+  const modalLinkNote = document.getElementById("modalLinkNote");
+  let lastFocusedElement = null;
 
-  function openProjectModal(projectKey) {
-    if (!projectModal) return;
-
+  function openProject(projectKey) {
     const project = projectData[projectKey];
+    if (!project || !modal) return;
+    lastFocusedElement = document.activeElement;
+    modalTitle.textContent = project.title;
+    modalEyebrow.textContent = project.category;
+    modalDescription.textContent = project.description;
+    modalTech.replaceChildren(...project.tech.map(tech => {
+      const tag = document.createElement("span");
+      tag.textContent = tech;
+      return tag;
+    }));
 
-    if (!project) {
-      console.warn(`Project "${projectKey}" was not found.`);
-      return;
-    }
-
-    if (modalCategory) {
-      modalCategory.textContent = project.category;
-    }
-
-    if (modalTitle) {
-      modalTitle.textContent = project.title;
-    }
-
-    if (modalDescription) {
-      modalDescription.textContent = project.description;
-    }
-
-    if (modalTags) {
-      modalTags.innerHTML = "";
-
-      project.tags.forEach((tag) => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = tag;
-
-        modalTags.appendChild(span);
-      });
-    }
-
-    if (modalFeatures) {
-      modalFeatures.innerHTML = "";
-
-      project.features.forEach((feature) => {
-        const li = document.createElement("li");
-        li.textContent = feature;
-
-        modalFeatures.appendChild(li);
-      });
-    }
-
-    if (modalDemo) {
-      modalDemo.href = project.demo;
-
-      if (project.demo === "#") {
-        modalDemo.removeAttribute("target");
-      } else {
-        modalDemo.setAttribute("target", "_blank");
-        modalDemo.setAttribute("rel", "noopener noreferrer");
-      }
-    }
-
-    if (modalGithub) {
-      modalGithub.href = project.github;
-
-      if (project.github === "#") {
-        modalGithub.removeAttribute("target");
-      } else {
-        modalGithub.setAttribute("target", "_blank");
-        modalGithub.setAttribute("rel", "noopener noreferrer");
-      }
-    }
-
-    projectModal.classList.add("active");
-    projectModal.setAttribute("aria-hidden", "false");
-
+    const hasLive = Boolean(project.live);
+    const hasRepo = Boolean(project.repo);
+    modalLiveLink.href = hasLive ? project.live : "#";
+    modalRepoLink.href = hasRepo ? project.repo : "#";
+    modalLiveLink.classList.toggle("is-disabled", !hasLive);
+    modalRepoLink.classList.toggle("is-disabled", !hasRepo);
+    modalLiveLink.setAttribute("aria-disabled", String(!hasLive));
+    modalRepoLink.setAttribute("aria-disabled", String(!hasRepo));
+    modalLinkNote.textContent = (!hasLive && !hasRepo)
+      ? "Project links have not been added yet. Add your live demo and repository URLs in js/app.js."
+      : "Use the links above to view the project or source code.";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-    document.body.style.overflow = "hidden";
+    modalClose?.focus();
   }
 
-
-  function closeProjectModal() {
-    if (!projectModal) return;
-
-    projectModal.classList.remove("active");
-    projectModal.setAttribute("aria-hidden", "true");
-
+  function closeProject() {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
-    document.body.style.overflow = "";
+    if (lastFocusedElement instanceof HTMLElement) lastFocusedElement.focus();
   }
 
-
-  document.querySelectorAll(".open-modal").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      const projectKey = button.dataset.project;
-
-      openProjectModal(projectKey);
-    });
+  document.querySelectorAll("[data-open-project]").forEach(button => {
+    button.addEventListener("click", () => openProject(button.dataset.openProject));
+  });
+  modalClose?.addEventListener("click", closeProject);
+  modal?.querySelectorAll("[data-close-modal]").forEach(el => el.addEventListener("click", closeProject));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && modal?.classList.contains("is-open")) closeProject();
   });
 
+  // Make unavailable project links inert until real URLs are supplied.
+  [modalLiveLink, modalRepoLink].forEach(link => link?.addEventListener("click", event => {
+    if (link.getAttribute("aria-disabled") === "true") event.preventDefault();
+  }));
 
-  if (modalClose) {
-    modalClose.addEventListener("click", (event) => {
+  // 3D profile card: click, Enter, or Space to flip; pointer adds subtle tilt.
+  const idCard = document.getElementById("idCard");
+  const idCardWrap = document.getElementById("idCardWrap");
+  function flipCard() {
+    idCard?.classList.toggle("is-flipped");
+  }
+  idCard?.addEventListener("click", event => {
+    if (event.target.closest("a")) return;
+    flipCard();
+  });
+  idCard?.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      closeProjectModal();
-    });
-  }
-
-
-  if (projectModal) {
-    projectModal.addEventListener("click", (event) => {
-      if (event.target === projectModal) {
-        closeProjectModal();
-      }
-    });
-  }
-
-
-  /* =========================================================
-     ESCAPE KEY
-  ========================================================= */
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeProjectModal();
+      flipCard();
     }
   });
+  idCardWrap?.addEventListener("pointermove", event => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || idCard?.classList.contains("is-flipped")) return;
+    const rect = idCardWrap.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    idCard.style.transform = `rotateY(${x * 9}deg) rotateX(${-y * 8}deg)`;
+  });
+  idCardWrap?.addEventListener("pointerleave", () => {
+    if (!idCard) return;
+    idCard.style.transform = idCard.classList.contains("is-flipped") ? "rotateY(180deg)" : "";
+  });
 
-
-  /* =========================================================
-     ID CARD FLIP
-  ========================================================= */
-
-  const profileCard = document.getElementById("profileCard");
-  const flipCardBtn = document.getElementById("flipCardBtn");
-
-  if (profileCard && flipCardBtn) {
-    const cardInner = profileCard.querySelector(".id-card-inner");
-
-    if (cardInner) {
-      let cardFlipped = false;
-
-      flipCardBtn.addEventListener("click", () => {
-        cardFlipped = !cardFlipped;
-
-        cardInner.style.transform = cardFlipped
-          ? "rotateY(180deg)"
-          : "rotateY(0deg)";
-
-        flipCardBtn.setAttribute(
-          "aria-pressed",
-          cardFlipped ? "true" : "false"
-        );
-      });
-    }
-  }
-
-
-  /* =========================================================
-     SCROLL REVEAL ANIMATION
-  ========================================================= */
-
-  const revealElements = document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
+  // Use a project-relative portrait, never a local Windows file path.
+  const profilePhoto = document.getElementById("profilePhoto");
+  const photoFallback = document.getElementById("photoFallback");
+  if (profilePhoto) {
+    profilePhoto.addEventListener("error", () => {
+      profilePhoto.style.display = "none";
+      if (photoFallback) photoFallback.style.display = "grid";
     });
-  } else {
-    revealElements.forEach((element) => {
-      element.classList.add("visible");
+    profilePhoto.addEventListener("load", () => {
+      profilePhoto.style.display = "block";
+      if (photoFallback) photoFallback.style.display = "none";
     });
   }
 
-
-  /* =========================================================
-     CONTACT FORM
-  ========================================================= */
-
+  // Contact form opens the visitor's default email app with the form filled in.
   const contactForm = document.getElementById("contactForm");
-  const formMessage = document.getElementById("formMessage");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const subjectInput = document.getElementById("subject");
-      const messageInput = document.getElementById("message");
-
-      const name = nameInput ? nameInput.value.trim() : "";
-      const email = emailInput ? emailInput.value.trim() : "";
-      const subject = subjectInput ? subjectInput.value.trim() : "";
-      const message = messageInput ? messageInput.value.trim() : "";
-
-      if (!name || !email || !subject || !message) {
-        if (formMessage) {
-          formMessage.textContent =
-            "Please complete all fields before sending.";
-          formMessage.classList.add("error");
-          formMessage.classList.remove("success");
-        }
-
-        return;
-      }
-
-      if (formMessage) {
-        formMessage.textContent =
-          "Thank you. Your message has been prepared successfully.";
-        formMessage.classList.remove("error");
-        formMessage.classList.add("success");
-      }
-
-      contactForm.reset();
-    });
-  }
-
-
-  /* =========================================================
-     CURRENT YEAR
-  ========================================================= */
-
-  const yearElement = document.getElementById("year");
-
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-
-
-  /* =========================================================
-     ACTIVE NAVIGATION ON SCROLL
-  ========================================================= */
-
-  const sections = document.querySelectorAll("main section[id]");
-  const navigationLinks = document.querySelectorAll(
-    '.nav-links a[href^="#"]'
-  );
-
-  if ("IntersectionObserver" in window && sections.length) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          const currentId = entry.target.getAttribute("id");
-
-          navigationLinks.forEach((link) => {
-            const linkTarget = link.getAttribute("href");
-
-            if (linkTarget === `#${currentId}`) {
-              link.classList.add("active");
-            } else {
-              link.classList.remove("active");
-            }
-          });
-        });
-      },
-      {
-        threshold: 0.25,
-        rootMargin: "-20% 0px -55% 0px"
-      }
-    );
-
-    sections.forEach((section) => {
-      sectionObserver.observe(section);
-    });
-  }
-
-
-  /* =========================================================
-     SMOOTH SCROLL
-  ========================================================= */
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-
-      if (!targetId || targetId === "#") {
-        return;
-      }
-
-      const targetElement = document.querySelector(targetId);
-
-      if (!targetElement) {
-        return;
-      }
-
-      event.preventDefault();
-
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+  contactForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:mohan.kasani.420@gmail.com?subject=${subject}&body=${body}`;
   });
 
-
-  /* =========================================================
-     MOHAN LETTER INTERACTION
-     ========================================================= */
-
-  const mohanLetters = document.querySelectorAll(".mohan-letter");
-
-  mohanLetters.forEach((letter, index) => {
-    letter.style.setProperty(
-      "--letter-delay",
-      `${index * 0.12}s`
-    );
-  });
-
-
-  
+  const currentYear = document.getElementById("currentYear");
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
 });
-
